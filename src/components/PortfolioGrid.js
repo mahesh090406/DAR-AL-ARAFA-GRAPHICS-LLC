@@ -3,48 +3,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function PortfolioGrid({ limit }) {
-    // Placeholder data - normally this would come from props or API
-    const portfolioItems = [
-        {
-            id: 1,
-            title: "Corporate Branding",
-            category: "Graphic Design",
-            image: "/assets/p-brand.jpg"
-        },
-        {
-            id: 2,
-            title: "Premium Business Cards",
-            category: "Printing",
-            image: "/assets/p-cards.jpg"
-        },
-        {
-            id: 3,
-            title: "Custom Acrylic Signage",
-            category: "Engraving",
-            image: "/assets/hero-print.jpg"
-        },
-        {
-            id: 4,
-            title: "Product Packaging",
-            category: "Custom Production",
-            image: "/assets/p-pack.jpg"
-        },
-        {
-            id: 5,
-            title: "Large Format Banners",
-            category: "Printing",
-            image: "/assets/p-banner.jpg"
-        },
-        {
-            id: 6,
-            title: "Logo Redesign",
-            category: "Graphic Design",
-            image: "/assets/p-logo.jpg"
-        }
-    ];
-
-    const displayItems = limit ? portfolioItems.slice(0, limit) : portfolioItems;
+export default function PortfolioGrid({ limit, items = [] }) {
+    // Data is now passed in as props
+    const displayItems = limit ? items.slice(0, limit) : items;
 
     return (
         <div className="grid-3">
@@ -60,7 +21,7 @@ export default function PortfolioGrid({ limit }) {
                 }}>
                     <div style={{
                         position: 'relative',
-                        height: '250px',
+                        height: '200px',
                         width: '100%',
                         backgroundColor: 'rgba(0,0,0,0.2)'
                     }}>

@@ -34,6 +34,8 @@ export default function Navbar() {
     const isHome = pathname === '/';
     const isTransparent = isHome && !scrolled && !mobileMenuOpen;
 
+    if (pathname.startsWith('/admin')) return null;
+
     return (
         <>
             <nav style={{

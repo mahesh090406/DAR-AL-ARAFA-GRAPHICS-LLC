@@ -3,8 +3,14 @@ import PortfolioGrid from "@/components/PortfolioGrid";
 import QuoteForm from "@/components/QuoteForm";
 import Link from "next/link";
 import Image from "next/image";
+import { getData } from "@/lib/store";
+
+export const dynamic = 'force-dynamic';
 
 export default function Home() {
+  const data = getData();
+  const portfolioItems = data.portfolio || [];
+
   return (
     <main>
       {/* Hero Section */}
@@ -100,34 +106,40 @@ export default function Home() {
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 'var(--spacing-xl)' }}>
             <h2 className="heading-lg">Our Expertise</h2>
-            <p style={{ maxWidth: '600px', margin: '0 auto', opacity: 0.8 }}>
+            <p style={{ maxWidth: '600px', margin: '0 auto', opacity: 1, color: '#F8FAFC', textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
               Comprehensive creative and production services tailored <br />to elevate your brand identity.
             </p>
           </div>
 
-          <div className="grid-3">
+          <div className="horizontal-grid">
             <ServiceCard
-              title="Graphic Design"
-              description="Strategic branding, logo design, marketing materials, and corporate identity packages created by expert designers."
-              icon="🎨"
-              href="/services/graphic-design"
+              title="Signage & LED"
+              description="Premium indoor/outdoor signage and luminous LED displays for maximum visibility."
+              icon="💡"
+              href="/services/signage-led"
             />
             <ServiceCard
-              title="Premium Printing"
-              description="High-quality offset and digital printing for business cards, brochures, catalogs, and large format needs."
+              title="Metal Laser Cutting"
+              description="High-precision cutting for stainless steel, aluminum, and brass projects."
+              icon="⚙️"
+              href="/services/metal-laser-cutting"
+            />
+            <ServiceCard
+              title="Digital Printing"
+              description="Vibrant large format printing, vehicle branding, and marketing assets."
               icon="🖨️"
-              href="/services/printing"
+              href="/services/digital-printing"
             />
             <ServiceCard
-              title="Laser Engraving"
-              description="Precision engraving on metal, wood, glass, and acrylic for awards, signage, and personalized gifts."
-              icon="⚡"
-              href="/services/engraving"
+              title="Acrylic Fabrication"
+              description="Custom acrylic stands, displays, and creative structures."
+              icon="🔷"
+              href="/services/acrylic-fabrication"
             />
           </div>
 
           <div style={{ marginTop: 'var(--spacing-lg)', textAlign: 'center' }}>
-            <Link href="/services" style={{ fontWeight: 600, color: 'var(--primary)', textDecoration: 'underline' }}>
+            <Link href="/services" style={{ fontWeight: 600, color: 'white', textDecoration: 'underline', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
               View All Services &rarr;
             </Link>
           </div>
@@ -140,11 +152,11 @@ export default function Home() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginBottom: 'var(--spacing-xl)', flexWrap: 'wrap', gap: '1rem' }}>
             <div>
               <h2 className="heading-lg" style={{ color: 'white' }}>Featured Work</h2>
-              <p style={{ opacity: 0.8, color: '#94a3b8' }}>Recent projects for our corporate clients.</p>
+              <p style={{ opacity: 1, color: '#F8FAFC', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>Recent projects for our corporate clients.</p>
             </div>
             <Link href="/portfolio" className="btn btn-secondary" style={{ borderColor: 'rgba(255,255,255,0.3)', color: 'white' }}>View Full Gallery</Link>
           </div>
-          <PortfolioGrid limit={3} />
+          <PortfolioGrid limit={3} items={portfolioItems} />
         </div>
       </section>
 
@@ -159,17 +171,17 @@ export default function Home() {
             <div>
               <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>🏆</div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem' }}>Premium Quality</h3>
-              <p style={{ opacity: 0.8 }}>We use top-tier materials and cutting-edge technology for flawless results.</p>
+              <p style={{ opacity: 1, color: '#F8FAFC', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>We use top-tier materials and cutting-edge technology for flawless results.</p>
             </div>
             <div>
               <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>⚡</div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem' }}>Fast Turnaround</h3>
-              <p style={{ opacity: 0.8 }}>Efficient workflows to meet your tightest corporate deadlines.</p>
+              <p style={{ opacity: 1, color: '#F8FAFC', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>Efficient workflows to meet your tightest corporate deadlines.</p>
             </div>
             <div>
               <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>🤝</div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem' }}>Client Focused</h3>
-              <p style={{ opacity: 0.8 }}>Dedicated support and personalized solutions for every project.</p>
+              <p style={{ opacity: 1, color: '#F8FAFC', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>Dedicated support and personalized solutions for every project.</p>
             </div>
           </div>
         </div>
@@ -180,13 +192,13 @@ export default function Home() {
         <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--spacing-xl)', alignItems: 'center' }}>
           <div>
             <h2 className="heading-lg">Ready to start your project?</h2>
-            <p style={{ fontSize: '1.1rem', marginBottom: '2rem', opacity: 0.8 }}>
+            <p style={{ fontSize: '1.1rem', marginBottom: '2rem', opacity: 1, color: '#FFFFFF', textShadow: '0 1px 2px rgba(0,0,0,0.6)' }}>
               Get in touch with us today for a free consultation and quote. We are ready to bring your vision to life with precision and creativity.
             </p>
             <ul style={{ space: '1rem', listStyle: 'none', marginBottom: '2rem' }}>
-              <li style={{ marginBottom: '0.5rem' }}>✅ Free initial consultation</li>
-              <li style={{ marginBottom: '0.5rem' }}>✅ Detailed project estimates</li>
-              <li style={{ marginBottom: '0.5rem' }}>✅ Expert design advice</li>
+              <li style={{ marginBottom: '0.5rem', textShadow: '0 1px 2px rgba(0,0,0,0.6)' }}>✅ Free initial consultation</li>
+              <li style={{ marginBottom: '0.5rem', textShadow: '0 1px 2px rgba(0,0,0,0.6)' }}>✅ Detailed project estimates</li>
+              <li style={{ marginBottom: '0.5rem', textShadow: '0 1px 2px rgba(0,0,0,0.6)' }}>✅ Expert design advice</li>
             </ul>
           </div>
           <div>

@@ -5,20 +5,20 @@ import Link from 'next/link';
 export default function ServiceCard({ title, description, icon, href }) {
     return (
         <div className="service-card-glass" style={{
-            padding: '2rem',
+            padding: '1.5rem',
             display: 'flex',
             flexDirection: 'column',
             height: '100%',
             background: 'rgba(255, 255, 255, 0.03)', // Dark Glass
             backdropFilter: 'blur(10px)',
             border: '1px solid rgba(255, 255, 255, 0.1)',
-            borderRadius: '20px',
+            borderRadius: '16px',
             color: 'white',
             transition: 'all 0.4s cubic-bezier(0.25, 1, 0.5, 1)'
         }}>
-            <div style={{ fontSize: '3rem', marginBottom: '1.5rem', filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.2))' }}>{icon}</div>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontWeight: 700, color: 'white' }}>{title}</h3>
-            <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flexGrow: 1 }}>
+            <div style={{ fontSize: '2.5rem', marginBottom: '1rem', filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.4))' }}>{icon}</div>
+            <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem', fontWeight: 700, color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.6)' }}>{title}</h3>
+            <p style={{ color: '#FFFFFF', fontSize: '0.9rem', lineHeight: '1.5', marginBottom: '1.5rem', flexGrow: 1, textShadow: '0 1px 3px rgba(0,0,0,0.8)', opacity: 1, fontWeight: 500 }}>
                 {description}
             </p>
             <div>

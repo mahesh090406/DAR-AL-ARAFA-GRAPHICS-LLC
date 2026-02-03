@@ -19,10 +19,10 @@ export default function Footer() {
                     <div>
                         <h4 style={{ color: 'white', fontSize: '1.1rem', marginBottom: '1.25rem' }}>Services</h4>
                         <ul style={{ listStyle: 'none', space: '0.75rem' }}>
-                            <li style={{ marginBottom: '0.5rem' }}><Link href="/services/graphic-design" style={{ opacity: 0.8 }}>Graphic Design</Link></li>
-                            <li style={{ marginBottom: '0.5rem' }}><Link href="/services/printing" style={{ opacity: 0.8 }}>Digital & Offset Printing</Link></li>
-                            <li style={{ marginBottom: '0.5rem' }}><Link href="/services/engraving" style={{ opacity: 0.8 }}>Laser Engraving</Link></li>
-                            <li style={{ marginBottom: '0.5rem' }}><Link href="/services/production" style={{ opacity: 0.8 }}>Custom Production</Link></li>
+                            <li style={{ marginBottom: '0.5rem' }}><Link href="/services/signage-led" style={{ opacity: 1, color: '#FFFFFF', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>Signage & LED</Link></li>
+                            <li style={{ marginBottom: '0.5rem' }}><Link href="/services/metal-laser-cutting" style={{ opacity: 1, color: '#FFFFFF', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>Metal Laser Cutting</Link></li>
+                            <li style={{ marginBottom: '0.5rem' }}><Link href="/services/digital-printing" style={{ opacity: 1, color: '#FFFFFF', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>Digital Printing</Link></li>
+                            <li style={{ marginBottom: '0.5rem' }}><Link href="/services/acrylic-fabrication" style={{ opacity: 1, color: '#FFFFFF', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>Acrylic Fabrication</Link></li>
                         </ul>
                     </div>
 
@@ -31,13 +31,13 @@ export default function Footer() {
                         <h4 style={{ color: 'white', fontSize: '1.1rem', marginBottom: '1.25rem' }}>Contact Us</h4>
                         <ul style={{ listStyle: 'none' }}>
                             <li style={{ marginBottom: '0.75rem', display: 'flex', gap: '0.5rem' }}>
-                                <span className="text-gold">📍</span> 123 Business District, City, Country
+                                <span className="text-gold">📍</span> Behind Gold Center, Sharjah, UAE
                             </li>
                             <li style={{ marginBottom: '0.75rem', display: 'flex', gap: '0.5rem' }}>
-                                <span className="text-gold">📞</span> +1 234 567 890
+                                <span className="text-gold">📞</span> 055 457 6868
                             </li>
                             <li style={{ marginBottom: '0.75rem', display: 'flex', gap: '0.5rem' }}>
-                                <span className="text-gold">✉️</span> contact@daralarafa.com
+                                <span className="text-gold">✉️</span> daralarafa@gmail.com
                             </li>
                         </ul>
                     </div>
