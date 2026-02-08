@@ -1,23 +1,26 @@
 :root {
   /* Colors */
-  /* Colors - Navy Blue Theme with Gold Accents */
-  --primary: #1e3a5f;
-  /* Navy Blue */
-  --primary-dark: #0f1f3d;
-  /* Darker Navy */
+  /* Colors - Slate Theme with Gold Accents */
+  --primary: #1e293b;
+  /* Slate 800 */
+  --primary-dark: #0f172a;
+  /* Slate 900 */
   --secondary: #FFD60A;
   /* Vibrant Gold (Restored) */
   --accent: #60a5fa;
   /* Light Blue accent */
   --text-main: #FFFFFF;
   /* Pure White */
-  --text-light: #FFFFFF;
-  /* Pure White instead of light gray */
+  --text-light: #F8FAFC;
+  /* Slate 50 */
   --text-gold: #FFD60A;
   /* Gold Text Accent (Restored) */
-  --background: #0f1f3d;
-  --surface: #1e3a5f;
-  --surface-dark: #2a4a6f;
+  --background: #0f172a;
+  /* Slate 900 */
+  --surface: #1e293b;
+  /* Slate 800 */
+  --surface-dark: #334155;
+  /* Slate 700 */
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -90,7 +93,7 @@ a {
 .btn-primary {
   background-color: var(--secondary);
   /* Force Gold */
-  color: #0A192F;
+  color: #0f172a;
   /* Force Dark Text */
 }
 
@@ -110,7 +113,7 @@ a {
 
 .btn-secondary:hover {
   background-color: var(--secondary);
-  color: #0A192F;
+  color: #0f172a;
 }
 
 .section-padding {
@@ -206,20 +209,20 @@ a {
 
 .card {
   background: var(--background);
-  color: #0A192F;
+  color: #0f172a;
   /* Force Dark Text on White Cards */
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
   transition: transform 0.3s ease;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #334155;
 }
 
 /* Fix Input Visibility */
 input,
 textarea,
 select {
-  color: #0A192F !important;
+  color: #0f172a !important;
   /* Always Dark Text in inputs */
   background-color: #FFFFFF !important;
   border: 1px solid #CBD5E1;
@@ -251,10 +254,10 @@ select {
 
 /* Premium Corporate Background */
 .premium-art-bg {
-  background-color: #0A192F;
+  background-color: #0f172a;
   background-image:
     radial-gradient(circle at 90% 10%, rgba(212, 175, 55, 0.25) 0%, transparent 45%),
-    linear-gradient(180deg, #0A192F 0%, #020610 100%);
+    linear-gradient(180deg, #0f172a 0%, #020617 100%);
   position: relative;
 }
 

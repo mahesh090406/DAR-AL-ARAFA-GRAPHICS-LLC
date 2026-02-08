@@ -1,4 +1,5 @@
 import QuoteForm from "@/components/QuoteForm";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function QuotePage() {
     return (
@@ -19,13 +20,17 @@ export default function QuotePage() {
 
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                     <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-                        <div style={{ textAlign: 'center', marginBottom: 'var(--spacing-lg)' }}>
-                            <h1 className="heading-xl" style={{ color: 'white' }}>Start Your Project</h1>
-                            <p style={{ fontSize: '1.25rem', opacity: 0.9, color: '#E2E8F0' }}>
-                                Tell us about your needs and we'll provide a detailed proposal.
-                            </p>
-                        </div>
-                        <QuoteForm />
+                        <ScrollReveal>
+                            <div style={{ textAlign: 'center', marginBottom: 'var(--spacing-lg)' }}>
+                                <h1 className="heading-xl" style={{ color: 'white' }}>Start Your Project</h1>
+                                <p style={{ fontSize: '1.25rem', opacity: 0.9, color: '#E2E8F0' }}>
+                                    Tell us about your needs and we'll provide a detailed proposal.
+                                </p>
+                            </div>
+                        </ScrollReveal>
+                        <ScrollReveal delay={0.2} width="100%">
+                            <QuoteForm />
+                        </ScrollReveal>
                     </div>
                 </div>
             </section>

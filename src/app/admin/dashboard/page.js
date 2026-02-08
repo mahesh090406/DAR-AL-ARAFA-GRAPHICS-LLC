@@ -50,6 +50,26 @@ export default function AdminDashboard() {
         }));
     };
 
+    // Auto-save helper
+    const saveToBackend = async (newData) => {
+        setSaving(true);
+        try {
+            const res = await fetch('/api/content', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newData),
+            });
+            if (!res.ok) throw new Error("Failed to save");
+            setSaving(false);
+            return true;
+        } catch (error) {
+            console.error(error);
+            alert("Error saving data");
+            setSaving(false);
+            return false;
+        }
+    };
+
     const updatePortfolioItem = (id, field, value) => {
         setData(prev => ({
             ...prev,
@@ -57,12 +77,18 @@ export default function AdminDashboard() {
         }));
     };
 
-    const deletePortfolioItem = (id) => {
-        if (!confirm("Are you sure?")) return;
-        setData(prev => ({
-            ...prev,
-            portfolio: prev.portfolio.filter(item => item.id !== id)
-        }));
+    const deletePortfolioItem = async (id) => {
+        if (!confirm("Are you sure you want to delete this item?")) return;
+
+        // Calculate new state
+        const newPortfolio = data.portfolio.filter(item => item.id !== id);
+        const newData = { ...data, portfolio: newPortfolio };
+
+        // Update UI immediately (Optimistic)
+        setData(newData);
+
+        // Save to backend
+        await saveToBackend(newData);
     };
 
     const handleImageUpload = async (e, itemId) => {
@@ -72,21 +98,31 @@ export default function AdminDashboard() {
         const formData = new FormData();
         formData.append('file', file);
 
-        // Optimistic update: Show loading or just wait
         try {
+            setSaving(true);
             const res = await fetch('/api/upload', {
                 method: 'POST',
                 body: formData
             });
-            const data = await res.json();
-            if (data.success) {
-                updatePortfolioItem(itemId, 'image', data.url);
+            const uploadData = await res.json();
+
+            if (uploadData.success) {
+                // Update state AND save to DB immediately
+                const newPortfolio = data.portfolio.map(item =>
+                    item.id === itemId ? { ...item, image: uploadData.url } : item
+                );
+                const newData = { ...data, portfolio: newPortfolio };
+
+                setData(newData);
+                saveToBackend(newData); // Auto-save after upload
             } else {
                 alert("Upload failed");
+                setSaving(false);
             }
         } catch (err) {
             console.error(err);
             alert("Upload error");
+            setSaving(false);
         }
     };
 
